@@ -1,0 +1,46 @@
+# env name
+env-name: "uav-v0"
+
+# env args
+env-kwargs:
+  episode_max: 300
+  n_clusters: 3
+  n_channels: 6
+  n_slaves: 3
+  n_jammers: 3
+  area_type: "small_and_medium_size_cities"
+  jamming_mode: 'Markov'
+  fc: 800000000
+  hb: 50
+  hm: 20
+  power_list: [27, 30, 33, 36]
+  jammer_power: 30
+  xlim: 1000
+  ylim: 1000
+  zlim_max: 200
+  zlim_min: 50
+  max_radius: 50
+  master_velocity: 10
+  slave_velocity: 10
+  moving_factor: 0.1
+  dt: 0.1
+  seed: null
+  training: true
+  test_obs: null
+
+# maml args
+gamma: 0.99
+gae-lambda: 1.0
+first-order: false
+hidden-sizes: [64, 64]
+nonlinearity: "tanh"
+fast-batch-size: 20
+num-steps: 1
+fast-lr: 0.1
+num-batches: 1000
+meta-batch-size: 40
+max-kl: 1.0e-2
+cg-iters: 10
+cg-damping: 1.0e-5
+ls-max-steps: 15
+ls-backtrack-ratio: 0.8

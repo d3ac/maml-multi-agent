@@ -16,6 +16,10 @@ from maml.metalearners import MAMLTRPO
 from maml.baseline import LinearFeatureBaseline
 from maml.utils.reinforcement_learning import get_returns
 
+import sys
+sys.path.append(os.path.expanduser('~/Desktop/uav env'))
+import UAVenv
+
 
 def main(args):
     mp.set_start_method('spawn')    #https://blog.csdn.net/woai8339/article/details/105789683
@@ -81,9 +85,9 @@ def main(args):
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description='Reinforcement learning with Model-Agnostic Meta-Learning (MAML) - Train')
-    parser.add_argument('--config', type=str, default="configs/halfcheetah-vel.yaml",help='path to the configuration file.')
+    parser.add_argument('--config', type=str, default="configs/uav-conf.yaml",help='path to the configuration file.')
     misc = parser.add_argument_group('Miscellaneous')
-    misc.add_argument('--output-folder', type=str, default='output')
+    misc.add_argument('--output-folder', type=str, default='outpu t')
     misc.add_argument('--seed', type=int, default=None,help='random seed')
     misc.add_argument('--num-workers', type=int, default=mp.cpu_count() - 1)
     misc.add_argument('--use-cuda', action='store_true', default=False)
