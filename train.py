@@ -10,7 +10,7 @@ import numpy as np
 import torch.multiprocessing as mp
 
 import maml.envs
-from maml.utils.helpers import get_policy_for_env, get_input_size
+from maml.utils.helpers import get_policy_for_env
 from maml.samplers import MultiTaskSampler
 from maml.metalearners import MAMLTRPO
 from maml.baseline import LinearFeatureBaseline
@@ -47,7 +47,7 @@ def main(args):
     env = gym.make(config['env-name'], **config.get('env-kwargs', {}))
     env.close() # 他的意思是，先创建一个环境，然后关闭它，这样就可以得到环境的一些信息，比如observation_space, action_space等
     # Policy
-    policy = get_policy_for_env(env, hidden_sizes=config['hidden-sizes'], nonlinearity=config['nonlinearity'])
+    policy = get_policy_for_env(env)
     policy.share_memory()
     # Baseline
     baseline = LinearFeatureBaseline(get_input_size(env))

@@ -32,8 +32,6 @@ env-kwargs:
 gamma: 0.99
 gae-lambda: 1.0
 first-order: false
-hidden-sizes: [64, 64]
-nonlinearity: "tanh"
 fast-batch-size: 20
 num-steps: 1
 fast-lr: 0.1

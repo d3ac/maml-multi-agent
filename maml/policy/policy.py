@@ -8,11 +8,9 @@ def weight_init(module):
         module.bias.data.zero_()
 
 class Policy(nn.Module):
-    def __init__(self, input_size,output_size):
+    def __init__(self):
         # 传入了一个module，他的数据都在self.named_parameters()里面
         super(Policy, self).__init__()
-        self.input_size = input_size
-        self.output_size = output_size
         self.named_meta_parameters = self.named_parameters
         self.meta_parameters = self.parameters
     
